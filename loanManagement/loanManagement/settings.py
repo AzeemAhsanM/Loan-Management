@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-j30wyr8k5mk=+_8ap_jnfnq)^5^s=-$gps3#i^zr)v*c28$*_t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -73,17 +73,18 @@ WSGI_APPLICATION = 'loanManagement.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'loan_management_db',
-        'USER': 'root',
-        'PASSWORD': 'Azeemmysql@1237',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-        "OPTIONS": {"charset": "utf8mb4"},
+        "default": {
+            "ENGINE": "django.db.backends.mysql",
+            "NAME": "loan_management_db",
+            "USER": "root",
+            "PASSWORD": "Azeemmysql@1237",
+            "HOST": "127.0.0.1",
+            "PORT": "3306",
+            "OPTIONS": {"charset": "utf8mb4"},
+        }
     }
-}
 
 
 # Password validation
