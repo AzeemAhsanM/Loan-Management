@@ -82,7 +82,7 @@ class Repayment(models.Model):
         if not self.receipt_no:
             self.receipt_no = next_receipt_no()
         super().save(*args, **kwargs)
-        # update schedule + borrower balance
+    
         self._apply_to_schedule()
         self.loan.borrower.current_balance = self.loan.balance
         self.loan.borrower.save(update_fields=["current_balance"])

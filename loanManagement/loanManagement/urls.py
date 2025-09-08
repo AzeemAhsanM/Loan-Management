@@ -15,9 +15,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from myapp import views
+
+#Define URL patterns for the app
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('myapp.urls')),
+    path("admin/", admin.site.urls),
+
+    path("", views.borrower_list, name="borrower_list"),
+    path("borrowers/new/", views.borrower_create, name="borrower_create"),
+    path("borrowers/<int:pk>/edit/", views.borrower_edit, name="borrower_edit"),
+
+    path("loans/new/", views.loan_create, name="loan_create"),
+    path("loans/", views.loan_lookup, name="loan_lookup"),                # <- added (must be before loan_details)
+    path("loans/<str:loan_id>/", views.loan_details, name="loan_details"),
+    path("ajax/load-loans/", views.load_loans, name="ajax_load_loans"),
+    path("loans/<str:loan_id>/approve/", views.loan_approve, name="loan_approve"),
+    path("loans/<str:loan_id>/reject/", views.loan_reject, name="loan_reject"),
+
+    path("repayments/new/", views.repayment_create, name="repayment_create"),
 ]
