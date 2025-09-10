@@ -4,9 +4,7 @@
 <div class="grid" style="grid-template-columns: repeat(auto-fit,minmax(260px,1fr));gap:16px">
   <div>
     <div class="label">Borrower</div>
-    <div><strong>{{ loan.borrower.name }}</strong> — {{ loan.borrower.account_number }}</div>
-    <div class="label">Scheme</div>
-    <div>{{ loan.borrower.scheme_type|default:"—" }}</div>
+    <div><strong>{{ loan.borrower.name }}</strong> — {{ loan.borrower.account_no }}</div>
   </div>
   <div>
     <div class="label">Amount</div><div>{{ loan.amount }}</div>

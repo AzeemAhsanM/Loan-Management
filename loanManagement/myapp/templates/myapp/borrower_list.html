@@ -22,8 +22,6 @@
       <tr>
         <td>
           <div><strong>{{ b.name }}</strong></div>
-          <div class="label">ID</div>
-          <div>{{ b.id }}</div>
         </td>
         <td>{{ b.account_no }}</td>  
         <td>
@@ -35,7 +33,7 @@
         </td>
         <td>{{ b.current_balance }}</td>
         <td>{{ b.loans.count }}</td>
-        <td class="chips">
+        <td class="edit">
           <a class="btn ghost" href="{% url 'borrower_edit' b.id %}">Edit</a>
         </td>
       </tr>

@@ -30,7 +30,7 @@ urlpatterns = [
     path("loans/new/", views.loan_create, name="loan_create"),
     path("loans/", views.loan_lookup, name="loan_lookup"),                # <- added (must be before loan_details)
     path("loans/<str:loan_id>/", views.loan_details, name="loan_details"),
-    path("ajax/load-loans/", views.load_loans, name="ajax_load_loans"),
+    path("ajax/load-loans/", views.load_loans, name="load_loans"),
     path("loans/<str:loan_id>/approve/", views.loan_approve, name="loan_approve"),
     path("loans/<str:loan_id>/reject/", views.loan_reject, name="loan_reject"),
 

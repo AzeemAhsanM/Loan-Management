@@ -7,7 +7,7 @@
     <select id="borrowerSelect" name="borrower">
       <option value="">-- select borrower --</option>
       {% for b in borrowers %}
-        <option value="{{ b.id }}">{{ b.name }} — {{ b.account_number }}</option>
+        <option value="{{ b.id }}">{{ b.name }}{{ b.account_number }}</option>
       {% endfor %}
     </select>
   </label>
@@ -29,7 +29,7 @@ borrowerSel.addEventListener('change', function(){
   loanSel.innerHTML = '<option value="">Loading...</option>';
   const id = this.value;
   if(!id){ loanSel.innerHTML = '<option value="">-- select loan --</option>'; return; }
-  fetch('{% url "ajax_load_loans" %}?borrower_id=' + encodeURIComponent(id))
+  fetch('{% url "load_loans" %}?borrower_id=' + encodeURIComponent(id))
     .then(r => r.json())
     .then(data => {
       if(!data.length){

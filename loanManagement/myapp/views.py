@@ -4,6 +4,8 @@ from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db import transaction
 from django.http import JsonResponse
+from django.db.models import Count, Q
+from decimal import Decimal, ROUND_HALF_UP
 
 
 from .models import Borrower, Loan, Repayment, RepaymentSchedule
